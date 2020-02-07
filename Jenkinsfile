@@ -4,6 +4,6 @@ elifePipeline {
     }
 
     stage 'Deploy to staging', {
-        sh "helm upgrade --install basex-validator--staging ./helm/basex-validator"
+        sh "helm upgrade --install basex-validator--staging ./helm/basex-validator --recreate-pods"
     }
 }

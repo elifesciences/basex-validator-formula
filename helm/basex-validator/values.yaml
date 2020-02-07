@@ -1,0 +1,10 @@
+# Default values for jats-validator.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  tag: latest
+  pullPolicy: Always
+  repository: elifesciences/basex-validator
+
+clientCertificate: 'arn:aws:iam::512686554592:server-certificate/cloudfront/wildcard.elifesciences.org/2019.wildcard.elifesciences.org'

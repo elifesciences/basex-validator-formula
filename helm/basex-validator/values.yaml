@@ -1,9 +1,4 @@
 # Default values for jats-validator.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-replicas: 2
-
 image:
   tag: latest
   pullPolicy: Always

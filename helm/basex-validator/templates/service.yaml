@@ -14,12 +14,12 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
-    - name: https
-      port: 443
+    - port: 8984
       protocol: TCP
       targetPort: http
+      name: http
   selector:
     app.kubernetes.io/name: {{ .Chart.Name }}
     app.kubernetes.io/instance: {{ .Release.Name }}

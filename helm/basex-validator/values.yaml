@@ -1,7 +1,13 @@
 # Default values for jats-validator.
-image:
-  tag: latest
-  pullPolicy: Always
-  repository: elifesciences/basex-validator
+ingress:
+  host: basex-validator--staging.elifesciences.org
+  basex-validator:
+    path: /
 
-clientCertificate: 'arn:aws:iam::512686554592:server-certificate/cloudfront/wildcard.elifesciences.org/2021-02-11.wildcard.elifesciences.org'
+basex-validator:
+  image:
+    repository: elifesciences/basex-validator
+    tag: latest
+    pullPolicy: Always
+  port: 80
+  replicaCount: 1

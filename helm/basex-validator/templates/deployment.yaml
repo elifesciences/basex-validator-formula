@@ -1,28 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ include "basex-validator.fullname" . }}
   labels:
-    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/name: {{ include "basex-validator.name" . }}
     helm.sh/chart: {{ include "basex-validator.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/component: basex-validator
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: {{ .Values.basexValidator.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ .Chart.Name }}
+      app.kubernetes.io/name: {{ include "basex-validator.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}
+      app.kubernetes.io/component: basex-validator
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ .Chart.Name }}
+        app.kubernetes.io/name: {{ include "basex-validator.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/component: basex-validator
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.basex-validator.image.repository }}:{{ .Values.basex-validator.image.tag }}"
-          imagePullPolicy: {{ .Values.basex-validator.image.pullPolicy }}
+          image: "{{ .Values.basexValidator.image.repository }}:{{ .Values.basexValidator.image.tag }}"
+          imagePullPolicy: {{ .Values.basexValidator.image.pullPolicy }}
           resources:
             requests:
               memory: '512Mi'

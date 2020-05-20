@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ include "basex-validator.fullname" . }}-client
+  name: {{ include "basex-validator.fullname" . }}
   labels:
     app.kubernetes.io/name: {{ include "basex-validator.name" . }}
     helm.sh/chart: {{ include "basex-validator.chart" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
-  {{- with .Values.ingress.basex-validator.annotations }}
+  {{- with .Values.ingress.basexValidator.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
@@ -16,7 +16,7 @@ spec:
   - host: {{ .Values.ingress.host }}
     http:
       paths:
-        - path: {{ .Values.ingress.basex-validator.path }}
+        - path: {{ .Values.ingress.basexValidator.path }}
           backend:
             serviceName: {{ include "basex-validator.fullname" . }}
-            servicePort: {{ .Values.basex-validator.port }}
+            servicePort: {{ .Values.basexValidator.port }}

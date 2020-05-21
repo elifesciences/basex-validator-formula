@@ -9,5 +9,5 @@ basexValidator:
     repository: elifesciences/basex-validator
     tag: latest
     pullPolicy: Always
-  port: 80
+  port: 8984
   replicaCount: 1

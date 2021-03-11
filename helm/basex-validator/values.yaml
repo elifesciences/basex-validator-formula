@@ -9,4 +9,4 @@ image:
   pullPolicy: Always
   repository: elifesciences/basex-validator
 
-clientCertificate: 'arn:aws:iam::512686554592:server-certificate/cloudfront/wildcard.elifesciences.org/2019.wildcard.elifesciences.org'
+clientCertificate: 'arn:aws:iam::512686554592:server-certificate/cloudfront/wildcard.elifesciences.org/2021-02-11.wildcard.elifesciences.org'

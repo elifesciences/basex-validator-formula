@@ -1,12 +1,13 @@
 # Default values for jats-validator.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+ingress:
+  host: basex-validator--staging.elifesciences.org
+  basexValidator:
+    path: /
 
-replicas: 2
-
-image:
-  tag: latest
-  pullPolicy: Always
-  repository: elifesciences/basex-validator
-
-clientCertificate: 'arn:aws:iam::512686554592:server-certificate/cloudfront/wildcard.elifesciences.org/2021-02-11.wildcard.elifesciences.org'
+basexValidator:
+  image:
+    repository: elifesciences/basex-validator
+    tag: latest
+    pullPolicy: Always
+  port: 8984
+  replicaCount: 1

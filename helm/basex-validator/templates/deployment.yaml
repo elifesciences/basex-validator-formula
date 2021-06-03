@@ -29,6 +29,7 @@ spec:
           resources:
             requests:
               memory: '512Mi'
+              cpu: '1.0'
           ports:
             - name: http
               containerPort: 8984

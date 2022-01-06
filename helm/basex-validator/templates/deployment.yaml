@@ -43,3 +43,7 @@ spec:
           readinessProbe:
             tcpSocket:
               port: http
+          startupProbe:
+            tcpSocket:
+              port: http
+            failureThreshold: 300

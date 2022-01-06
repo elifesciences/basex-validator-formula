@@ -3,6 +3,7 @@ ingress:
   host: basex-validator--staging.elifesciences.org
   basexValidator:
     path: /
+    pathType: ImplementationSpecific
 
 basexValidator:
   image:

@@ -11,3 +11,4 @@ basexValidator:
     pullPolicy: Always
   port: 8984
   replicaCount: 1
+  maxUnavailable: 1

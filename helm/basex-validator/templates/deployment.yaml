@@ -10,6 +10,9 @@ metadata:
     app.kubernetes.io/component: basex-validator
 spec:
   replicas: {{ .Values.basexValidator.replicaCount }}
+  strategy:
+    rollingUpdate:
+      maxUnavailable: {{ .Values.basexValidator.maxUnavailable }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "basex-validator.name" . }}

@@ -13,12 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Checking formula for formatting issues
-        run: |
-          docker run --rm -i -v $GITHUB_WORKSPACE/helm/basex-validator:/formula:ro -v $GITHUB_WORKSPACE/out:/out:rw alpine/helm lint /formula
-      - name: Creating template from formula
-        run: |
-          docker run --rm -i -v $GITHUB_WORKSPACE/helm/basex-validator:/formula:ro -v $GITHUB_WORKSPACE/out:/out:rw alpine/helm template basex-validator--ci /formula --output-dir /out
-      - name: Validating formula
-        run: |
-          docker run --rm -i -v $GITHUB_WORKSPACE/out/basex-validator/templates:/templates:ro ghcr.io/yannh/kubeconform -kubernetes-version 1.19.0 -summary -strict -output json /templates/
+      - id: Lint and Validate
+        uses: elifesciences/helm-validator-action
+        with:
+          chartPath: 'helm/basex-validator'

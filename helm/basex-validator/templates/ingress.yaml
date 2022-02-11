@@ -18,5 +18,7 @@ spec:
       paths:
         - path: {{ .Values.ingress.basexValidator.path }}
           backend:
-            serviceName: {{ include "basex-validator.fullname" . }}
-            servicePort: {{ .Values.basexValidator.port }}
+            service:
+              name: {{ include "basex-validator.fullname" . }}
+              port: 
+                number: {{ .Values.basexValidator.port }}

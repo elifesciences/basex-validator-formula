@@ -2,4 +2,4 @@ apiVersion: v1
 appVersion: latest
 description: BaseX Validator for validating XML against eLife's schematron
 name: basex-validator
-version: 0.1.8
+version: 0.2.0
